@@ -32,7 +32,7 @@ export type Point = {
   y: number;
 };
 
-export type XYMH = {
+export type XYWH = {
   x: number;
   y: number;
   height: number;
@@ -90,7 +90,7 @@ export type EllipseLayer = {
 export type CanvasState =
   | { mode: CanvasMode.None }
   | { mode: CanvasMode.SelectionNet; origin: Point; current?: Point }
-  | { mode: CanvasMode.Translating; current?: Point }
+  | { mode: CanvasMode.Translating; current: Point }
   | {
       mode: CanvasMode.Inserting;
       layerType:
@@ -101,7 +101,7 @@ export type CanvasState =
     }
   | { mode: CanvasMode.Pencil }
   | { mode: CanvasMode.Pressing; origin: Point }
-  | { mode: CanvasMode.Resizing; initialBounds: XYMH; corner: Side };
+  | { mode: CanvasMode.Resizing; initialBounds: XYWH; corner: Side };
 
 export enum CanvasMode {
   None,
